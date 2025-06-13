@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,6 +13,7 @@
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
@@ -28,23 +30,24 @@
   </div>
 
   <script>
-    const lists = document.querySelectorAll('.list-group-item');
+    const lists = document.querySelectorAll('.list-group-item'); // 모든 리스트 항목 선택
 
     for (let list of lists) {
-      list.onclick = function() {
-        console.log(list.className);
-        if (list.className == 'list-group-item') {
-          resetLists();
-          list.setAttribute('class', 'list-group-item active');
+      list.onclick = function () { // 각 리스트 항목 클릭 시 실행
+        console.log(list.className); // 현재 클래스명을 콘솔에 출력
+        if (list.className == 'list-group-item') { // 클래스가 'list-group-item'인 경우
+          resetLists(); // 모든 리스트 항목의 클래스를 초기화
+          list.setAttribute('class', 'list-group-item active'); // 현재 클릭된 항목을 active로 설정
         }
       }
     }
 
     function resetLists() {
       for (let list of lists) {
-        list.setAttribute('class', 'list-group-item');
+        list.setAttribute('class', 'list-group-item'); // 모든 리스트 항목의 클래스를 기본값으로 초기화
       }
     }
   </script>
 </body>
+
 </html>

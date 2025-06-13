@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>DOM::change</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row">
@@ -23,19 +25,26 @@
   </div>
 
   <script>
+    // 변경할 이미지 주제 리스트
     const things = ['car', 'dog', 'cat', 'mountain', 'sea'];
 
+    // 모든 이미지에 클릭 이벤트 등록
     for (let img of document.images) {
-      img.onclick = function() {
+      img.onclick = function () {
+        // 랜덤 인덱스 선택
         let index = Math.floor(Math.random() * things.length);
+        // 새로운 이미지 URL 생성
         let url = 'https://loremflickr.com/320/240/' + things[index];
 
+        // 이미지 src 속성 변경
         img.setAttribute('src', url);
         img.src = url;
 
+        // 변경된 URL 콘솔에 출력
         console.log(url);
       }
     }
   </script>
 </body>
+
 </html>

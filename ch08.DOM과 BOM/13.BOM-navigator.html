@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>BOM::location</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
@@ -60,28 +62,29 @@
   </div>
 
   <script>
-    document.querySelector('#appCodeName').innerText = navigator.appCodeName;
-    document.querySelector('#appName').innerText = navigator.appName;
-    document.querySelector('#appVersion').innerText = navigator.appVersion;
-    document.querySelector('#language').innerText = navigator.language;
-    document.querySelector('#onLine').innerText = navigator.onLine;
-    document.querySelector('#platform').innerText = navigator.platform;
-    document.querySelector('#userAgent').innerText = navigator.userAgent;
+    document.querySelector('#appCodeName').innerText = navigator.appCodeName; // 브라우저 코드 이름 출력
+    document.querySelector('#appName').innerText = navigator.appName; // 브라우저 이름 출력
+    document.querySelector('#appVersion').innerText = navigator.appVersion; // 브라우저 버전 정보 출력
+    document.querySelector('#language').innerText = navigator.language; // 브라우저 언어 설정 출력
+    document.querySelector('#onLine').innerText = navigator.onLine; // 온라인 여부 출력 (true/false)
+    document.querySelector('#platform').innerText = navigator.platform; // 운영체제 플랫폼 정보 출력
+    document.querySelector('#userAgent').innerText = navigator.userAgent; // 사용자 에이전트 문자열 출력
 
-    document.querySelector('.btn-success').onclick = function() {
-      let geoText = document.querySelector('#geolocation');
+    document.querySelector('.btn-success').onclick = function () { // 위치 정보 요청 버튼 클릭 시 실행
+      let geoText = document.querySelector('#geolocation'); // 위치 출력 대상 요소 선택
 
-      if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(function(position) {
-          console.log(position);
-          let lat = position.coords.latitude;
-          let lng = position.coords.longitude;
-          geoText.innerText = `위도 ${lat}, 경도 ${lng}`;
+      if (navigator.geolocation) { // geolocation 기능 지원 여부 확인
+        navigator.geolocation.getCurrentPosition(function (position) { // 현재 위치 정보 가져오기
+          console.log(position); // 위치 객체 콘솔 출력
+          let lat = position.coords.latitude; // 위도 값
+          let lng = position.coords.longitude; // 경도 값
+          geoText.innerText = `위도 ${lat}, 경도 ${lng}`; // 위치 정보 출력
         });
       } else {
-        geoText.innerText = '지원되지 않는 브라우저입니다.';
+        geoText.innerText = '지원되지 않는 브라우저입니다.'; // 미지원 브라우저 안내
       }
     }
   </script>
 </body>
+
 </html>

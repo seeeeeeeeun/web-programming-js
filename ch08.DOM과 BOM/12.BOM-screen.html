@@ -1,18 +1,21 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>BOM::screen</title>
 </head>
+
 <body>
 
-<script>
-  document.write(`${window.outerWidth} * ${window.outerHeight}<br>`);
-  document.write(`${window.innerWidth} * ${window.innerHeight}<br>`);
-  document.write(`${screen.width} * ${screen.height}<br>`);
-  document.write(`${screen.availWidth} * ${screen.availHeight}`);
-</script>
+  <script>
+    document.write(`${window.outerWidth} * ${window.outerHeight}<br>`); // 브라우저 외곽(툴바 포함 전체) 크기 출력
+    document.write(`${window.innerWidth} * ${window.innerHeight}<br>`); // 브라우저 내부(콘텐츠 영역) 크기 출력
+    document.write(`${screen.width} * ${screen.height}<br>`); // 전체 화면 해상도 출력
+    document.write(`${screen.availWidth} * ${screen.availHeight}`); // 작업 표시줄 제외 사용 가능한 화면 크기 출력
+  </script>
 </body>
+
 </html>

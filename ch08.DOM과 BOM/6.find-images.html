@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>DOM::Find images</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row">
@@ -27,20 +29,27 @@
   </div>
 
   <script>
-    document.querySelector('.btn').onclick = function() {
+    // 버튼 클릭 시 실행
+    document.querySelector('.btn').onclick = function () {
+      // 입력된 숫자값 가져오기
       let num = document.querySelector('input[name="num"]').value;
-      num = parseInt(num) - 1;
+      num = parseInt(num) - 1; // 인덱스 맞추기 위해 1 감소
 
+      // 페이지 내 모든 이미지 요소를 배열로 가져옴
       let imgs = Array.from(document.images);
 
-      imgs.forEach(function(item, index) {
+      // 각 이미지에 대해 반복 실행
+      imgs.forEach(function (item, index) {
         if (num == index) {
+          // 입력한 번호의 이미지 숨김
           item.style.display = 'none';
         } else {
+          // 나머지 이미지는 표시
           item.style.display = '';
         }
       });
     }
   </script>
 </body>
+
 </html>

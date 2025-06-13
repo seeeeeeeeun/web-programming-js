@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,40 +8,42 @@
   <title>DOM::add#1</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-10">
-      <ul class="list-group">
-        <li class="list-group-item">1 번째</li>
-        <li class="list-group-item">2 번째</li>
-        <li class="list-group-item">3 번째</li>
-        <li class="list-group-item">4 번째</li>
-        <li class="list-group-item">5 번째</li>
-      </ul>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-10">
+        <ul class="list-group">
+          <li class="list-group-item">1 번째</li>
+          <li class="list-group-item">2 번째</li>
+          <li class="list-group-item">3 번째</li>
+          <li class="list-group-item">4 번째</li>
+          <li class="list-group-item">5 번째</li>
+        </ul>
+      </div>
     </div>
   </div>
-</div>
 
-<script>
-  const lists = document.querySelectorAll('li');
+  <script>
+    const lists = document.querySelectorAll('li'); // 모든 <li> 요소 선택
 
-  for (let list of lists) {
-    list.onclick = function() {
-      const newList = document.createElement('li');
+    for (let list of lists) {
+      list.onclick = function () { // 각 리스트 클릭 시 실행
+        const newList = document.createElement('li'); // 새로운 <li> 요소 생성
 
-      const newAttr = document.createAttribute('class');
-      newAttr.value = 'list-group-item active';
-      newList.setAttributeNode(newAttr);
+        const newAttr = document.createAttribute('class'); // 새로운 class 속성 생성
+        newAttr.value = 'list-group-item active'; // 클래스 값 설정
+        newList.setAttributeNode(newAttr); // 클래스 속성 추가
 
-      const newText = list.innerText + ' [추가]';
-      const newTextNode = document.createTextNode(newText);
-      newList.appendChild(newTextNode);
+        const newText = list.innerText + ' [추가]'; // 클릭한 항목 텍스트에 [추가] 붙이기
+        const newTextNode = document.createTextNode(newText); // 텍스트 노드 생성
+        newList.appendChild(newTextNode); // 텍스트 노드를 <li>에 추가
 
-      console.log(list.parentElement);
-      list.parentElement.appendChild(newList);
+        console.log(list.parentElement); // 현재 <li>의 부모(<ul>) 출력
+        list.parentElement.appendChild(newList); // 부모 <ul>에 새로운 <li> 추가
+      }
     }
-  }
-</script>
+  </script>
 </body>
+
 </html>

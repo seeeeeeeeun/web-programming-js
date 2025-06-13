@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>DOM::change</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row">
@@ -41,22 +43,23 @@
 
   <script src="/bootstrap-5.3.2-dist/js/bootstrap.min.js"></script>
   <script>
-    const myModal = new bootstrap.Modal('#myModal');
-    const figures = document.querySelectorAll('figure');
-    const modalBody = document.querySelector('#myModal .modal-body');
+    const myModal = new bootstrap.Modal('#myModal'); // 모달 인스턴스 생성
+    const figures = document.querySelectorAll('figure'); // 모든 figure 요소 선택
+    const modalBody = document.querySelector('#myModal .modal-body'); // 모달 본문 요소 선택
 
     for (let figure of figures) {
-      figure.addEventListener('click', function() {
-        console.log(figure);
-        console.log(figure.outerHTML);
-        console.log(figure.innerHTML);
+      figure.addEventListener('click', function () { // 각 figure 클릭 시 이벤트 핸들러 실행
+        console.log(figure); // figure 요소 자체 출력
+        console.log(figure.outerHTML); // figure 요소 전체 HTML 출력
+        console.log(figure.innerHTML); // figure 내부 HTML 출력
         console.log(typeof figure, typeof figure.outerHTML,
-          typeof figure.innerHTML);
+          typeof figure.innerHTML); // 각 값의 타입 출력
 
-        modalBody.innerHTML = figure.outerHTML;
-        myModal.show();
+        modalBody.innerHTML = figure.outerHTML; // 모달 본문에 클릭한 figure 복사
+        myModal.show(); // 모달 표시
       });
     }
   </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>DOM::Find forms</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row">
@@ -33,21 +35,27 @@
   </div>
 
   <script>
-    document.querySelector('.btn').onclick = function() {
+    // 버튼 클릭 시 실행
+    document.querySelector('.btn').onclick = function () {
+      // 입력한 숫자 값을 가져옴
       let num = document.querySelector('input[name="num"]').value;
 
-      switch(parseInt(num)) {
+      switch (parseInt(num)) {
         case 1:
+          // 첫 번째 form의 user input에 포커스
           document.forms[0].user.focus();
           break;
         case 2:
+          // name="myForm"인 form의 user input에 포커스
           document.forms['myForm'].user.focus();
           break;
         case 3:
+          // name="yourForm"인 form의 user input에 포커스
           document.yourForm.user.focus();
           break;
       }
     }
   </script>
 </body>
+
 </html>

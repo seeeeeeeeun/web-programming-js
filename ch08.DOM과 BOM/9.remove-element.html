@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>DOM::remove#1</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
@@ -28,24 +30,25 @@
   </div>
 
   <script>
-    document.querySelector('.btn-danger').onclick = function() {
-      location.reload();
+    document.querySelector('.btn-danger').onclick = function () {
+      location.reload(); // 새로고침 버튼 클릭 시 페이지 리로드
     }
 
-    const ul = document.querySelector('.list-group');
+    const ul = document.querySelector('.list-group'); // <ul> 요소 선택
 
-    document.querySelector('.btn-warning').onclick = function() {
-      const target = document.querySelectorAll('li')[2];
-      ul.removeChild(target);
+    document.querySelector('.btn-warning').onclick = function () {
+      const target = document.querySelectorAll('li')[2]; // 세 번째 <li> 요소 선택
+      ul.removeChild(target); // 해당 요소 제거
     }
 
-    document.querySelector('.btn-success').onclick = function() {
-      console.log(ul.children);
+    document.querySelector('.btn-success').onclick = function () {
+      console.log(ul.children); // 현재 자식 요소(<li>들) 콘솔 출력
 
-      if (ul.children.length) {
-        ul.removeChild(ul.children[0]);
+      if (ul.children.length) { // 자식 요소가 남아 있으면
+        ul.removeChild(ul.children[0]); // 첫 번째 요소부터 순차적으로 제거
       }
     }
   </script>
 </body>
+
 </html>

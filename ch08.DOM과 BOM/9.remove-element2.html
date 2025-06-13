@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>DOM::remove#2</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
@@ -23,23 +25,24 @@
   </div>
 
   <script>
-    const lists = document.querySelectorAll('li');
+    const lists = document.querySelectorAll('li'); // 모든 <li> 요소 선택
 
     for (let list of lists) {
       list.onclick = () => {
-        list.parentElement.removeChild(list);
+        list.parentElement.removeChild(list); // 클릭한 <li>를 부모(<ul>)로부터 제거
       }
     }
 
     /*
-    const lists = Array.from(document.querySelectorAll('li'));
-    
+    const lists = Array.from(document.querySelectorAll('li')); // NodeList를 배열로 변환
+
     lists.forEach((item, index) => {
       item.onclick = () => {
-        item.parentElement.removeChild(item);
+        item.parentElement.removeChild(item); // 클릭된 항목을 부모에서 제거
       }
     });
     */
   </script>
 </body>
+
 </html>

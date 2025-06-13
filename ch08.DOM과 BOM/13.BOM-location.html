@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>BOM::location</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
@@ -48,16 +50,17 @@
   </div>
 
   <script>
-    document.querySelector('#href').innerText = location.href;
-    document.querySelector('#hostname').innerText = location.hostname;
-    document.querySelector('#pathname').innerText = location.pathname;
-    document.querySelector('#protocol').innerText = location.protocol;
+    document.querySelector('#href').innerText = location.href; // 전체 URL 출력
+    document.querySelector('#hostname').innerText = location.hostname; // 도메인 이름 출력
+    document.querySelector('#pathname').innerText = location.pathname; // 경로 부분 출력
+    document.querySelector('#protocol').innerText = location.protocol; // 사용 중인 프로토콜 출력 (http:, https:)
 
-    document.querySelector('.btn').onclick = function() {
-      location.assign('https://www.booksr.co.kr');
+    document.querySelector('.btn').onclick = function () {
+      location.assign('https://www.booksr.co.kr'); // 해당 URL로 새 페이지 이동 (히스토리 저장됨)
 
-      // location.replace('https://www.booksr.co.kr');
+      // location.replace('https://www.booksr.co.kr'); // 히스토리 저장 없이 페이지 이동
     }
   </script>
 </body>
+
 </html>

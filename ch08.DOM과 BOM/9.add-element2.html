@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>DOM::add#2</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
@@ -23,37 +25,38 @@
   </div>
 
   <script>
-    const lists = document.querySelectorAll('li');
+    const lists = document.querySelectorAll('li'); // 모든 <li> 요소 선택
 
     for (let list of lists) {
-      list.onclick = () => {
-        makeElement(this);
+      list.onclick = () => { //에러 !!!!!!!!!!!!!!!!
+        makeElement(this); // 클릭된 요소를 makeElement에 전달하려 했지만 this가 예상과 다르게 동작함
       }
     }
 
     function makeElement(list) {
-      const newList = document.createElement('li');
+      const newList = document.createElement('li'); // 새로운 <li> 요소 생성
 
-      const newAttr = document.createAttribute('class');
-      newAttr.value = 'list-group-item active';
-      newList.setAttributeNode(newAttr);
+      const newAttr = document.createAttribute('class'); // 클래스 속성 생성
+      newAttr.value = 'list-group-item active'; // 클래스 값 설정
+      newList.setAttributeNode(newAttr); // 클래스 속성 추가
 
-      const newText = list.innerText + ' [추가]';
-      const newTextNode = document.createTextNode(newText);
-      newList.appendChild(newTextNode);
+      const newText = list.innerText + ' [추가]'; // 기존 텍스트에 [추가]를 붙임
+      const newTextNode = document.createTextNode(newText); // 텍스트 노드 생성
+      newList.appendChild(newTextNode); // 텍스트를 <li>에 추가
 
-      newList.onclick = () => makeElement(newList);
+      newList.onclick = () => makeElement(newList); // 새로 추가된 <li>도 클릭 시 재귀적으로 요소 생성
 
-      list.parentElement.appendChild(newList);
+      list.parentElement.appendChild(newList); // 기존 <li>의 부모(<ul>)에 새 요소 추가
     }
 
     /*
-      newList.innerText = list.innerText + ' [추가]';
+      newList.innerText = list.innerText + ' [추가]'; // 텍스트 설정의 다른 방법
 
       newList.addEventListener('click', () => {
-        makeElement(newList);
+        makeElement(newList); // addEventListener로 클릭 이벤트 등록
       });
     */
   </script>
 </body>
+
 </html>

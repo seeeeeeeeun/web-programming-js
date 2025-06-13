@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,6 +8,7 @@
   <title>DOM::Find links</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row">
@@ -24,16 +26,21 @@
   </div>
 
   <script>
-    document.querySelector('.btn').onclick = function() {
+    // 버튼 클릭 시 실행
+    document.querySelector('.btn').onclick = function () {
+      // 입력된 숫자값 가져오기
       let num = document.querySelector('input[name="num"]').value;
-      num = parseInt(num) - 1;
+      num = parseInt(num) - 1; // 인덱스 맞추기 위해 1 감소
 
+      // 페이지 내 모든 하이퍼링크(a 태그) 수집
       let hyperlinks = document.links;
 
-      [...hyperlinks].forEach(function(item, index) {
-        if (num == index) item.click();
+      // 선택된 링크만 클릭 발생
+      [...hyperlinks].forEach(function (item, index) {
+        if (num == index) item.click(); // 입력 번호와 일치하는 링크 클릭
       });
     }
   </script>
 </body>
+
 </html>
