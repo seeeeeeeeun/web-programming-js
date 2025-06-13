@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,56 +8,58 @@
   <title>Array::concat()</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <div class="btn-group" role="group">
-        <button type="button" class="btn btn-success">sort()</button>
-        <button type="button" class="btn btn-primary">초기화</button>
-        <button type="button" class="btn btn-danger">reverse()</button>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="btn-group" role="group">
+          <button type="button" class="btn btn-success">sort()</button> <!-- 정렬 버튼 -->
+          <button type="button" class="btn btn-primary">초기화</button> <!-- 초기화 버튼 -->
+          <button type="button" class="btn btn-danger">reverse()</button> <!-- 역순 정렬 버튼 -->
+        </div>
+      </div>
+      <div class="col">
+        <ul class="list-group">
+          <li class="list-group-item">홍길동(1)</li>
+          <li class="list-group-item">일지매(2)</li>
+          <li class="list-group-item">임꺽정(3)</li>
+          <li class="list-group-item">전우치(4)</li>
+          <li class="list-group-item">장길산(5)</li>
+        </ul>
       </div>
     </div>
-    <div class="col">
-      <ul class="list-group">
-        <li class="list-group-item">홍길동(1)</li>
-        <li class="list-group-item">일지매(2)</li>
-        <li class="list-group-item">임꺽정(3)</li>
-        <li class="list-group-item">전우치(4)</li>
-        <li class="list-group-item">장길산(5)</li>
-      </ul>
-    </div>
   </div>
-</div>
 
-<script>
-  const listArray = [];
-  const lists = document.querySelectorAll('.list-group-item');
-  for (let list of lists) {
-    listArray.push(list.innerText);
-  }
-
-  document.querySelector('.btn-success').addEventListener('click', function() {
-    listArray.sort();
-    setListGroup();
-  });
-
-  document.querySelector('.btn-primary').addEventListener('click', function() {
-    location.reload(); // 초기화
-  });
-
-  document.querySelector('.btn-danger').addEventListener('click', function() {
-    listArray.reverse();
-    setListGroup();
-  });
-
-  function setListGroup() {
-    let tempArray = [];
-    for (let list of listArray) {
-      tempArray.push('<li class="list-group-item">' + list + '</li>');
+  <script>
+    const listArray = []; // 리스트 항목 문자열을 저장할 배열
+    const lists = document.querySelectorAll('.list-group-item');
+    for (let list of lists) {
+      listArray.push(list.innerText); // 각 항목 텍스트를 배열에 추가
     }
-    document.querySelector('.list-group').innerHTML = tempArray.join('');
-  }
-</script>
+
+    document.querySelector('.btn-success').addEventListener('click', function () {
+      listArray.sort(); // 배열을 오름차순 정렬
+      setListGroup(); // 화면에 갱신
+    });
+
+    document.querySelector('.btn-primary').addEventListener('click', function () {
+      location.reload(); // 페이지를 새로고침하여 초기 상태로 되돌림
+    });
+
+    document.querySelector('.btn-danger').addEventListener('click', function () {
+      listArray.reverse(); // 배열을 역순으로 정렬
+      setListGroup(); // 화면에 갱신
+    });
+
+    function setListGroup() {
+      let tempArray = []; // 새로 그릴 리스트 HTML 저장용 배열
+      for (let list of listArray) {
+        tempArray.push('<li class="list-group-item">' + list + '</li>'); // li 요소로 감싸기
+      }
+      document.querySelector('.list-group').innerHTML = tempArray.join(''); // 리스트를 화면에 출력 (새로운 배열로 바꾸기)
+    }
+  </script>
 </body>
+
 </html>

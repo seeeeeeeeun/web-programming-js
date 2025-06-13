@@ -1,31 +1,35 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>String::include() & startsWith() & endsWith()</title>
 </head>
+
 <body>
-<script>
-  let poem = `
+  <script>
+    let poem = `
     그 꽃 (고은)
     
     내려갈 때 보았네
     올라갈 때 보지못한
     그 꽃
-  `;
+  `; // 여러 줄 문자열 (시)
 
-  console.log(poem.includes('고은'));
-  console.log(poem.startsWith('그 꽃'));
-  console.log(poem.endsWith('그 꽃'));
-  console.log(poem);
+    console.log(poem.includes('고은')); // 문자열에 '고은' 포함 여부 (true)
+    console.log(poem.startsWith('그 꽃')); // 문자열이 '그 꽃'으로 시작하는지 (false, 들여쓰기 때문)
+    console.log(poem.endsWith('그 꽃')); // 문자열이 '그 꽃'으로 끝나는지 (false, 공백 포함)
 
-  poem = poem.trim();
-  
-  console.log(poem);
-  console.log(poem.startsWith('그 꽃'));
-  console.log(poem.endsWith('그 꽃'));
-</script>
+    console.log(poem); // 원본 문자열 출력
+
+    poem = poem.trim(); // 앞뒤 공백 제거
+
+    console.log(poem); // trim() 후 문자열 출력
+    console.log(poem.startsWith('그 꽃')); // 이제 '그 꽃'으로 시작하는지 확인 (true)
+    console.log(poem.endsWith('그 꽃')); // '그 꽃'으로 끝나는지 확인 (true)
+  </script>
 </body>
+
 </html>

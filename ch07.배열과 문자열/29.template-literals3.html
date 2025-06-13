@@ -1,51 +1,55 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>template literals</title>
-  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE 호환성 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+  <title>template literals</title> <!-- 문서 제목 -->
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css"> <!-- 부트스트랩 CSS -->
   <style>
     .container {
       margin-top: 30px;
+      /* 상단 여백 설정 */
     }
   </style>
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-4">
         <form>
-          <h1 class="h3 mb-3 fw-normal">로그인</h1>
+          <h1 class="h3 mb-3 fw-normal">로그인</h1> <!-- 제목 -->
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="userId" name="userId" placeholder="hong">
+            <input type="text" class="form-control" id="userId" name="userId" placeholder="hong"> <!-- 아이디 입력 -->
             <label for="userId">아이디</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="passwd" name="passwd" placeholder="비밀번호">
+            <input type="password" class="form-control" id="passwd" name="passwd" placeholder="비밀번호"> <!-- 비밀번호 입력 -->
             <label for="passwd">비밀번호</label>
           </div>
-          <button type="button" class="w-100 btn btn-lg btn-primary">확인</button>
+          <button type="button" class="w-100 btn btn-lg btn-primary">확인</button> <!-- 버튼 -->
         </form>
         <hr>
-        <div class="alert alert-dark" role="alert"></div>
+        <div class="alert alert-dark" role="alert"></div> <!-- 결과 출력 영역 -->
       </div>
     </div>
   </div>
 
   <script>
-    const trigger = document.querySelector('button[type="button"]');
+    const trigger = document.querySelector('button[type="button"]'); // 버튼 요소 선택
     trigger.onclick = function () {
-      let userId = document.querySelector('input[name="userId"]');
-      let passwd = document.querySelector('input[name="passwd"]');
-      let txtBox = document.querySelector('.alert');
+      let userId = document.querySelector('input[name="userId"]'); // 아이디 입력값
+      let passwd = document.querySelector('input[name="passwd"]'); // 비밀번호 입력값
+      let txtBox = document.querySelector('.alert'); // 결과 표시 영역
 
-      // let info = '입력값은 ' + userId.value + ', ' + passwd.value + '입니다!';
+      // 템플릿 리터럴을 사용해 문자열 생성
       let info = `입력값은 ${userId.value}, ${passwd.value}입니다!`;
 
-      txtBox.innerText = info;
+      txtBox.innerText = info; // 결과 텍스트 출력
     }
   </script>
 </body>
+
 </html>

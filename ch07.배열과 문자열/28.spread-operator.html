@@ -1,26 +1,31 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>spread operator</title>
+  <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE 호환성 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+  <title>spread operator</title> <!-- 문서 제목 -->
 </head>
+
 <body>
-<script>
-  const str = 'korea';
+  <script>
+    const str = 'korea'; // 문자열 선언
 
-  for (let char of str) {
-    console.log(char, str.indexOf(char));
-  }
+    for (let char of str) {
+      // 문자열을 순회하며 각 문자와 해당 문자의 첫 인덱스를 출력
+      console.log(char, str.indexOf(char));
+    }
 
-  console.log([...str]);
+    console.log([...str]); // spread 연산자를 이용해 문자열을 배열로 변환
 
-  [...str].forEach(function (item, index) {
-    console.log(item, index);
-  });
+    [...str].forEach(function (item, index) {
+      // 변환된 배열을 순회하며 각 문자와 인덱스를 출력
+      console.log(item, index);
+    });
 
-  console.log(Array.from(str));
-</script>
+    console.log(Array.from(str)); // Array.from()을 이용해 문자열을 배열로 변환
+  </script>
 </body>
+
 </html>

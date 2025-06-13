@@ -1,38 +1,41 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Array::forEach() & map()</title>
 </head>
+
 <body>
-<script>
-  const numbers = [1, 3, 5, 7];
+  <script>
+    const numbers = [1, 3, 5, 7]; // 숫자 배열
 
-  numbers.forEach(function(value, index, numbers) {
-    console.log(value, index, numbers);
-  });
+    numbers.forEach(function (value, index, numbers) {
+      console.log(value, index, numbers); // 배열의 각 요소를 순회하며 값, 인덱스, 전체 배열 출력
+    });
 
-  numbers.forEach(loopNumber1);
+    numbers.forEach(loopNumber1); // 아래 정의된 함수로 순회
 
-  function loopNumber1(item, index) {
-    console.log(item, index);
-  }
+    function loopNumber1(item, index) {
+      console.log(item, index); // 값과 인덱스만 출력
+    }
 
-  console.log('==========================');
+    console.log('==========================');
 
-  let newArray1 = numbers.map(function(value, index, numbers) {
-    return 10 + value;
-  });
-  console.log(newArray1);
+    let newArray1 = numbers.map(function (value, index, numbers) {
+      return 10 + value; // 각 요소에 10을 더한 값을 새 배열로 반환
+    });
+    console.log(newArray1); // [11, 13, 15, 17]
 
-  let newArray2 = numbers.map(loopNumber2);
+    let newArray2 = numbers.map(loopNumber2); // 아래 정의된 함수로 map 수행
 
-  function loopNumber2(item, index) {
-    return 10 * item;
-  }
-  console.log(newArray2);
-</script>
+    function loopNumber2(item, index) {
+      return 10 * item; // 각 요소에 10을 곱한 값을 반환
+    }
+    console.log(newArray2); // [10, 30, 50, 70]
+  </script>
 </body>
+
 </html>

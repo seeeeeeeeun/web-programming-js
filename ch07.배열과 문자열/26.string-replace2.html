@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,11 +8,12 @@
   <title>String::replace()</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-10">
-        <input type="search" class="form-control" name="search" placeholder="검색어 입력 후 엔터">
+        <input type="search" class="form-control" name="search" placeholder="검색어 입력 후 엔터"> <!-- 검색창 -->
         <div class="alert alert-dark" role="alert">
           동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세
           (후렴)무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세,
@@ -27,18 +29,19 @@
   </div>
 
   <script>
-    const searchBox = document.querySelector('input[name="search"]');
-    const textBox = document.querySelector('div.alert');
+    const searchBox = document.querySelector('input[name="search"]'); // 검색 입력창 요소
+    const textBox = document.querySelector('div.alert'); // 가사 출력 박스 요소
 
-    searchBox.onsearch = function() {
-      var re = new RegExp(this.value, 'g');
+    searchBox.onsearch = function () {
+      var re = new RegExp(this.value, 'g'); // 입력된 검색어를 정규식으로 생성 (RegExp 이용)
 
-      let newText = textBox.innerText.replace(re, function(x) {
-        return '<span class="bg-white">' + x + '</span>';
+      let newText = textBox.innerText.replace(re, function (x) {
+        return '<span class="bg-white">' + x + '</span>'; // 검색어에 배경 강조 적용
       });
 
-      textBox.innerHTML = newText;
+      textBox.innerHTML = newText; // 강조된 문자열로 내용 갱신
     }
   </script>
 </body>
+
 </html>

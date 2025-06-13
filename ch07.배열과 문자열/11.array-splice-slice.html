@@ -1,34 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Array::splice() & slice()</title>
 </head>
+
 <body>
-<script>
-  const pets = ['개', '고양이', '곰', '말'];
+  <script>
+    /*
+    splice(start, deleteCount) → 삭제 
+    splice(start, deleteCount, A) → A 추가
+    splice(start, deleteCount, A, B) → A를 B로 교체 */
 
-  console.log('[pets]', pets);
-  pets.splice(2);
-  console.log('[splice()]', pets);
-  pets.splice(0, 1);
-  console.log('[splice()]', pets);
-  pets.splice(0, 0, '햄스터');
-  console.log('[splice()]', pets);
-  pets.splice(1, 1, '거북이', '앵무새');
-  console.log('[splice()]', pets);
-  console.log('=================');
+    const pets = ['개', '고양이', '곰', '말']; // 초기 배열 선언
 
-  const weeks = ['월', '화', '수', '목', '금'];
+    console.log('[pets]', pets);
+    pets.splice(2); // 인덱스 2부터 끝까지 제거 → ['개', '고양이']
+    console.log('[splice()]', pets);
+    pets.splice(0, 1); // 인덱스 0부터 1개 제거 → ['고양이']
+    console.log('[splice()]', pets);
+    pets.splice(0, 0, '햄스터'); // 인덱스 0에 '햄스터' 삽입 → ['햄스터', '고양이']
+    console.log('[splice()]', pets);
+    pets.splice(1, 1, '거북이', '앵무새'); // 인덱스 1의 요소 1개 제거 후 2개 추가 → ['햄스터', '거북이', '앵무새']
+    console.log('[splice()]', pets);
+    console.log('=================');
 
-  console.log('[slice()]', weeks.slice());
-  console.log('[slice()]', weeks.slice(2));
-  console.log('[slice()]', weeks.slice(2, 4));
-  console.log('[slice()]', weeks.slice(-2));
-  console.log('[slice()]', weeks.slice(1, -2));
-  console.log('[weeks]', weeks);
-</script>
+    const weeks = ['월', '화', '수', '목', '금']; // 새 배열 선언
+
+    console.log('[slice()]', weeks.slice()); // 전체 복사
+    console.log('[slice()]', weeks.slice(2)); // 인덱스 2부터 끝까지 → ['수', '목', '금']
+    console.log('[slice()]', weeks.slice(2, 4)); // 인덱스 2~3까지 → ['수', '목']
+    console.log('[slice()]', weeks.slice(-2)); // 마지막 2개 → ['목', '금']
+    console.log('[slice()]', weeks.slice(1, -2)); // 인덱스 1부터 마지막에서 2개 전까지 → ['화', '수']
+    console.log('[weeks]', weeks); // 원본 배열 유지됨
+  </script>
 </body>
+
 </html>

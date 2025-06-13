@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>String::replace()</title>
-  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE 호환성 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+  <title>String::replace()</title> <!-- 문서 제목 -->
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css"> <!-- 부트스트랩 CSS 링크 -->
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-10">
-        <input type="search" class="form-control" name="search" placeholder="검색어 입력 후 엔터">
+        <input type="search" class="form-control" name="search" placeholder="검색어 입력 후 엔터"> <!-- 검색 입력창 -->
         <div class="alert alert-dark" role="alert">
           동해물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라만세
           (후렴)무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세,
@@ -27,16 +29,19 @@
   </div>
 
   <script>
-    const searchBox = document.querySelector('input[name="search"]');
-    const textBox = document.querySelector('div.alert');
+    const searchBox = document.querySelector('input[name="search"]'); // 검색창 요소 선택
+    const textBox = document.querySelector('div.alert'); // 텍스트가 있는 div 선택
 
     searchBox.onsearch = function () {
-      let newText = textBox.innerText.replaceAll(this.value, function(x) {
+      // 검색 이벤트 발생 시 실행되는 함수
+      let newText = textBox.innerText.replaceAll(this.value, function (x) {
+        // 입력한 검색어를 찾아 강조(span 태그)로 감쌈
         return '<span class="bg-warning">' + x + '</span>';
       });
 
-      textBox.innerHTML = newText;
+      textBox.innerHTML = newText; // 강조된 텍스트로 교체하여 출력
     }
   </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,41 +8,43 @@
   <title>Array::forEach() & map()</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
-<div class="container">
-  <div class="row">
-    <div class="col"></div>
-    <div class="col"></div>
+  <div class="container">
+    <div class="row">
+      <div class="col"></div> <!-- 전체 사용자 목록 출력 영역 -->
+      <div class="col"></div> <!-- 서울 거주자만 출력 영역 -->
+    </div>
   </div>
-</div>
 
-<script>
-  const users = [
-    { id: 1, name: '홍길동', address: '서울' },
-    { id: 2, name: '일지매', address: '부산' },
-    { id: 3, name: '임꺽정', address: '서울' },
-    { id: 4, name: '전우치', address: '광주' },
-    { id: 5, name: '장길산', address: '서울' }
-  ];
+  <script>
+    const users = [
+      { id: 1, name: '홍길동', address: '서울' },
+      { id: 2, name: '일지매', address: '부산' },
+      { id: 3, name: '임꺽정', address: '서울' },
+      { id: 4, name: '전우치', address: '광주' },
+      { id: 5, name: '장길산', address: '서울' }
+    ]; // 사용자 객체 배열
 
-  let lists = [];
-  users.forEach(function(value, index) {
-    lists.push('<li class="list-group-item">' + value.name + '</li>');
-  });
+    let lists = [];
+    users.forEach(function (value, index) {
+      lists.push('<li class="list-group-item">' + value.name + '</li>'); // 전체 이름 리스트 생성
+    });
 
-  const target1 = document.querySelector('.col:nth-of-type(1)');
-  target1.innerHTML = '<ul class="list-group">' + lists.join('') + '</ul>';
+    const target1 = document.querySelector('.col:nth-of-type(1)'); //첫번째 열
+    target1.innerHTML = '<ul class="list-group">' + lists.join('') + '</ul>'; // 첫 번째 컬럼에 전체 리스트 출력
 
-  let newArray = users.map(myFunction);
+    let newArray = users.map(myFunction); // 조건에 맞는 사용자만 리스트 생성
 
-  function myFunction(item, index) {
-    if (item.address == '서울') {
-      return '<li class="list-group-item">' + item.name + '</li>';
+    function myFunction(item, index) {
+      if (item.address == '서울') {
+        return '<li class="list-group-item">' + item.name + '</li>'; // 주소가 서울인 사용자만 반환
+      }
     }
-  }
 
-  const target2 = document.querySelector('.col:nth-of-type(2)');
-  target2.innerHTML = '<ul class="list-group">' + newArray.join('') + '</ul>';
-</script>
+    const target2 = document.querySelector('.col:nth-of-type(2)'); //두번째 열
+    target2.innerHTML = '<ul class="list-group">' + newArray.join('') + '</ul>'; // 두 번째 컬럼에 서울 거주자 출력
+  </script>
 </body>
+
 </html>

@@ -1,29 +1,32 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>spread operator</title>
+  <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE 호환성 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+  <title>spread operator</title> <!-- 문서 제목 -->
 </head>
+
 <body>
-<script>
-  const arr = [1, 2, 3];
-  const arrCopy = [...arr];
-  console.log('배열 복사', arrCopy);
+  <script>
+    const arr = [1, 2, 3]; // 배열 선언
+    const arrCopy = [...arr]; // 배열 복사 (shallow copy)
+    console.log('배열 복사', arrCopy);
 
-  const arr2 = [4, 5, 6];
-  const arrMerged = [...arr, ...arr2];
-  console.log('배열 통합', arrMerged);
+    const arr2 = [4, 5, 6]; // 두 번째 배열 선언
+    const arrMerged = [...arr, ...arr2]; // 두 배열을 이어붙임
+    console.log('배열 통합', arrMerged);
 
-  const arrMerged2 = [0, ...arr, 4, ...arr2];
-  console.log('배열 통합', arrMerged2);
+    const arrMerged2 = [0, ...arr, 4, ...arr2]; // 중간에 직접 값 삽입하여 배열 통합
+    console.log('배열 통합', arrMerged2);
 
-  const myCar1 = { type: '내연기관', color: 'white' };
-  const myCar2 = { type: '전기차', doors: 5 };
-  const myCarMerged = { ...myCar1, ...myCar2 };
+    const myCar1 = { type: '내연기관', color: 'white' }; // 첫 번째 객체
+    const myCar2 = { type: '전기차', doors: 5 }; // 두 번째 객체 (type이 덮어씀)
+    const myCarMerged = { ...myCar1, ...myCar2 }; // 객체 병합 (속성 중복 시 나중 값으로 덮어씀)
 
-  console.log('객체 통합', myCarMerged);
-</script>
+    console.log('객체 통합', myCarMerged);
+  </script>
 </body>
+
 </html>

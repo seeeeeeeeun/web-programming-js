@@ -1,25 +1,28 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>String::charAt() & indexOf()</title>
 </head>
-<body>
-<script>
-  const str = 'korea';
 
-  for (let char of str) {
-    //console.log(char);
-    console.log(str.indexOf(char), char);
-  }
-  
-  console.log('================');
-  console.log('str[2]: ', str[2]);
-  console.log('str[str.length - 1]: ', str[str.length - 1]);
-  console.log('str.charAt(2): ', str.charAt(2));
-  console.log("str.indexOf('r'): ", str.indexOf('r'));
-</script>
+<body>
+  <script>
+    const str = 'korea'; // 문자열 변수
+
+    for (let char of str) {
+      // 문자열의 각 문자에 대해 indexOf와 문자 출력
+      console.log(str.indexOf(char), char); // 처음 등장하는 위치(index)와 문자
+    }
+
+    console.log('================');
+    console.log('str[2]: ', str[2]); // 인덱스 2번 문자 (r)
+    console.log('str[str.length - 1]: ', str[str.length - 1]); // 마지막 문자 (a)
+    console.log('str.charAt(2): ', str.charAt(2)); // charAt을 사용해 2번 인덱스 문자 (r)
+    console.log("str.indexOf('r'): ", str.indexOf('r')); // 'r' 문자의 첫 등장 위치 (2)
+  </script>
 </body>
+
 </html>

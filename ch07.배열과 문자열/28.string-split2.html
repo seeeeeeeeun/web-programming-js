@@ -1,34 +1,36 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>String::split()</title>
-  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+  <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE 호환성 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+  <title>String::split()</title> <!-- 문서 제목 -->
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css"> <!-- 부트스트랩 CSS -->
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-10">
-        <input type="search" class="form-control" name="input" placeholder="아래 문장 입력 후 엔터">
-        <input type="text" class="form-control" name="answer" disabled value="나의 살던 고향은 꽃피는 산골">
-        <div class="alert alert-dark" role="alert"></div>
+        <input type="search" class="form-control" name="input" placeholder="아래 문장 입력 후 엔터"> <!-- 사용자 입력창 -->
+        <input type="text" class="form-control" name="answer" disabled value="나의 살던 고향은 꽃피는 산골"> <!-- 정답 문장 -->
+        <div class="alert alert-dark" role="alert"></div> <!-- 결과 출력 영역 -->
       </div>
     </div>
   </div>
-  
+
   <script>
-    const inputBox = document.querySelector('input[name="input"]');
-    const answerBox = document.querySelector('input[name="answer"]');
+    const inputBox = document.querySelector('input[name="input"]'); // 입력창 요소 선택
+    const answerBox = document.querySelector('input[name="answer"]'); // 정답창 요소 선택
+    const alertBox = document.querySelector('div.alert'); // 결과 출력할 박스 선택
 
-    const alertBox = document.querySelector('div.alert');
+    inputBox.onsearch = function () {
+      let inputArray = this.value.split(' '); // 입력값을 공백 기준으로 나눔
+      let answerArray = answerBox.value.split(' '); // 정답도 공백 기준으로 나눔
 
-    inputBox.onsearch = function() {
-      let inputArray = this.value.split(' ');
-      let answerArray = answerBox.value.split(' ');
-
-      let newArray = inputArray.map(function(item, index) {
+      let newArray = inputArray.map(function (item, index) {
+        // 입력 단어와 정답 단어가 같으면 흰 배경, 다르면 빨간 배경 + 흰 글자
         if (item == answerArray[index]) {
           return '<span class="bg-white">' + item + '</span>';
         } else {
@@ -36,8 +38,9 @@
         }
       });
 
-      alertBox.innerHTML = newArray.join(' ');
+      alertBox.innerHTML = newArray.join(' '); // 결과를 HTML로 출력
     }
   </script>
 </body>
+
 </html>

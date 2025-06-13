@@ -1,27 +1,30 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Array::filter() & reduce()</title>
 </head>
+
 <body>
-<script>
-  const numbers = [1, 3, 5, 7, 9];
+  <script>
+    const numbers = [1, 3, 5, 7, 9]; // 숫자 배열
 
-  const remains = numbers.filter(function(value, index) {
-    return (value % 3) == 1;
-  });
-  console.log('remains', remains);
+    const remains = numbers.filter(function (value, index) {
+      return (value % 3) == 1; // 3으로 나눈 나머지가 1인 값만 필터링
+    });
+    console.log('remains', remains); // [1, 7]
 
-  const sum = numbers.reduce(makeSum, 10);
+    const sum = numbers.reduce(makeSum, 10); // 초기값 10부터 시작하여 합산
 
-  function makeSum(total, item, index) {
-    console.log('total, item, index', total, item, index);
-    return total + item;
-  }
-  console.log('sum', sum);
-</script>
+    function makeSum(total, item, index) {
+      console.log('total, item, index', total, item, index); // 현재 누적값, 항목, 인덱스 출력
+      return total + item; // 누적합 반환
+    }
+    console.log('sum', sum); // 결과: 35 (10 + 1 + 3 + 5 + 7 + 9)
+  </script>
 </body>
+
 </html>

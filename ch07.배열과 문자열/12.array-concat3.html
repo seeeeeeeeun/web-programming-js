@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -13,78 +14,85 @@
     }
   </style>
 </head>
+
 <body>
-<div class="container">
-  <div class="row">
-    <div class="col">
-      <select class="form-select" multiple name="country" size="3">
-        <option value="france">프랑스</option>
-        <option value="australia">호주</option>
-        <option value="korea">대한민국</option>
-      </select>
-    </div>
-    <div class="col-5">
-      <div class="d-grid gap-2">
-        <button class="btn btn-primary" type="button">concat()</button>
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <select class="form-select" multiple name="country" size="3">
+          <option value="france">프랑스</option>
+          <option value="australia">호주</option>
+          <option value="korea">대한민국</option>
+        </select>
       </div>
-      <div id="pocket"></div>
-    </div>
-    <div class="col">
-      <div class="form-check">
-        <label><input class="form-check-input" type="checkbox" name="city" value="paris">파리</label>
+      <div class="col-5">
+        <div class="d-grid gap-2">
+          <button class="btn btn-primary" type="button">concat()</button>
+        </div>
+        <div id="pocket"></div>
       </div>
-      <div class="form-check">
-        <label><input class="form-check-input" type="checkbox" name="city" value="sydney">시드니</label>
-      </div>
-      <div class="form-check">
-        <label><input class="form-check-input" type="checkbox" name="city" value="seoul">서울</label>
+      <div class="col">
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="city" value="paris">파리</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="city" value="sydney">시드니</label>
+        </div>
+        <div class="form-check">
+          <label><input class="form-check-input" type="checkbox" name="city" value="seoul">서울</label>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
-<script>
-  let countryArray = [];
-  let cityArray = [];
+  <script>
+    let countryArray = []; // 선택된 국가들을 저장하는 배열
+    let cityArray = [];    // 선택된 도시들을 저장하는 배열
 
-  document.querySelector('.btn').onclick = function() {
-    if (countryArray.length && cityArray.length) {
-      const concatArray = countryArray.concat(cityArray);
-      document.querySelector('#pocket').innerText = concatArray.join(' | ');
-    } else {
-      alert('좌우 선택을 먼저해주세요.');
-    }
-  }
-
-  const country = document.querySelector('[name="country"]');
-  for (let option of country.options) {
-    option.onclick = function() {
-      if (option.selected) {
-        countryArray.push(option.value);
+    document.querySelector('.btn').onclick = function () {
+      // 버튼 클릭 시 국가와 도시가 모두 선택되어 있으면
+      if (countryArray.length && cityArray.length) {
+        const concatArray = countryArray.concat(cityArray); // 두 배열을 합침
+        document.querySelector('#pocket').innerText = concatArray.join(' | '); // 결과를 화면에 표시
       } else {
-        let index = countryArray.indexOf(option.value);
-        if (index !== -1) {
-          countryArray.splice(index, 1);
-        }
-      } 
-      console.log(countryArray);
-    }
-  }
-
-  const cities = document.querySelectorAll('[name="city"]');
-  for (let city of cities) {
-    city.onchange = function() {
-      if (city.checked) {
-        cityArray.push(city.value);
-      } else {
-        let index = cityArray.indexOf(city.value);
-        if (index !== -1) {
-          cityArray.splice(index, 1);
-        }
+        alert('좌우 선택을 먼저해주세요.'); // 선택이 부족할 경우 경고 표시
       }
-      console.log(cityArray);
     }
-  }
-</script>
+
+    const country = document.querySelector('[name="country"]');
+    for (let option of country.options) {
+      option.onclick = function () {
+        // 옵션이 선택되었을 경우 배열에 추가
+        if (option.selected) {
+          countryArray.push(option.value);
+        } else {
+          // 선택 해제되었을 경우 배열에서 제거
+          let index = countryArray.indexOf(option.value);
+          if (index !== -1) {
+            countryArray.splice(index, 1);
+          }
+        }
+        console.log(countryArray); // 현재 선택된 국가 목록을 콘솔에 출력
+      }
+    }
+
+    const cities = document.querySelectorAll('[name="city"]');
+    for (let city of cities) {
+      city.onchange = function () {
+        // 체크되면 배열에 추가
+        if (city.checked) {
+          cityArray.push(city.value);
+        } else {
+          // 체크 해제되면 배열에서 제거
+          let index = cityArray.indexOf(city.value);
+          if (index !== -1) {
+            cityArray.splice(index, 1);
+          }
+        }
+        console.log(cityArray); // 현재 선택된 도시 목록을 콘솔에 출력
+      }
+    }
+  </script>
 </body>
+
 </html>

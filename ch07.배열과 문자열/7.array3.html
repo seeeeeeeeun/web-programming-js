@@ -1,39 +1,42 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Array</title>
 </head>
-<body>
-<script>
-  const myObject = {
-    name: '홍길동',
-    age: 25,
-    myFunc1: function() {
-      alert('함수1');
-    },
-    myFunc2: function() {
-      return '함수2';
-    },
-    timingEvent: setTimeout(function() {
-      alert('setTimeout');
-    }, 1000)
-  }
 
-  console.log(typeof myObject);
-  console.log("myObject['name']", myObject['name']);
-  console.log("myObject['age']", myObject['age']);
-  console.log("myObject['myFunc1']", myObject['myFunc1']());
-  console.log("myObject['myFunc2']", myObject['myFunc2']());
-  console.log("myObject['timingEvent']", myObject['timingEvent']);
-  console.log('===========================');
-  console.log('myObject.name', myObject.name);
-  console.log('myObject.age', myObject.age);
-  console.log('myObject.myFunc1', myObject.myFunc1());
-  console.log('myObject.myFunc2', myObject.myFunc2());
-  console.log('myObject.timingEvent', myObject.timingEvent);
-</script>
+<body>
+  <script>
+    const myObject = {
+      name: '홍길동', // 문자열 프로퍼티
+      age: 25, // 숫자 프로퍼티
+      myFunc1: function () {
+        alert('함수1'); // 알림창을 띄우는 함수
+      },
+      myFunc2: function () {
+        return '함수2'; // 문자열을 반환하는 함수
+      },
+      timingEvent: setTimeout(function () {
+        alert('setTimeout'); // 1초 후 알림창 띄우기
+      }, 1000) // setTimeout의 반환값(타이머 ID)이 저장됨
+    }
+
+    console.log(typeof myObject); // 객체이므로 'object' 출력
+    console.log("myObject['name']", myObject['name']); // '홍길동'
+    console.log("myObject['age']", myObject['age']); // 25
+    console.log("myObject['myFunc1']", myObject['myFunc1']()); // 함수 실행 → alert('함수1')
+    console.log("myObject['myFunc2']", myObject['myFunc2']()); // 함수 실행 결과: '함수2'
+    console.log("myObject['timingEvent']", myObject['timingEvent']); // setTimeout의 반환값 (타이머 ID)
+    console.log('===========================');
+    console.log('myObject.name', myObject.name); // 점 표기법으로 '홍길동'
+    console.log('myObject.age', myObject.age); // 점 표기법으로 25
+    console.log('myObject.myFunc1', myObject.myFunc1()); // 점 표기법으로 함수 실행 → alert('함수1')
+    console.log('myObject.myFunc2', myObject.myFunc2()); // 점 표기법으로 함수 실행 결과: '함수2'
+    console.log('myObject.timingEvent', myObject.timingEvent); // 점 표기법으로 타이머 ID 출력
+  </script>
 </body>
+
 </html>

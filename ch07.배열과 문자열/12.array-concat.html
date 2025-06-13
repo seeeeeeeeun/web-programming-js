@@ -1,23 +1,26 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Array::concat()</title>
 </head>
+
 <body>
-<script>
-  const pets = ['개', '고양이'];
-  const birds = ['앵무새', '꾀꼬리'];
-  const beasts = ['사자', '호랑이'];
+  <script>
+    const pets = ['개', '고양이']; // 반려동물 배열
+    const birds = ['앵무새', '꾀꼬리']; // 새 종류 배열
+    const beasts = ['사자', '호랑이']; // 맹수 배열
 
-  const animals = pets.concat(birds, beasts);
+    const animals = pets.concat(birds, beasts); // 배열 결합 → 하나의 animals 배열 생성
 
-  console.log(animals.valueOf());
-  console.log(animals.join(''));
-  console.log(animals.toString());
-  console.log(animals);
-</script>
+    console.log(animals.valueOf()); // 배열 자체 출력
+    console.log(animals.join('')); // 요소를 빈 문자열로 연결하여 출력
+    console.log(animals.toString()); // 쉼표로 구분된 문자열로 출력
+    console.log(animals); // 배열 객체 출력
+  </script>
 </body>
+
 </html>
