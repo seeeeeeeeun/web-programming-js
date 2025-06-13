@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,43 +8,49 @@
   <title>AJAX</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row my-3">
       <div class="col-4">
         <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="button">AJAX 활용</button>
+          <button class="btn btn-primary" type="button">AJAX 활용</button> <!-- 버튼 클릭 시 RSS 요청 -->
         </div>
       </div>
-      <div class="col-8" id="pocket"></div>
+      <div class="col-8" id="pocket"></div> <!-- 뉴스 리스트 출력 영역 -->
     </div>
   </div>
 
   <script>
-    document.querySelector('.btn-primary').onclick = function() {
-      const xhr = new XMLHttpRequest();
+    /*
+    외부 사이트(www.korea.kr)의 RSS를 직접 브라우저에서 Ajax로 요청하려 하면 CORS 오류 발생 
+    → 프록시 서버로 우회하거나 미리 XML을 다운로드하여 사용해야 함.*/
+    document.querySelector('.btn-primary').onclick = function () {
+      const xhr = new XMLHttpRequest(); // XMLHttpRequest 객체 생성
       // xhr.open('GET', '10.rss.xml');
-      xhr.open('GET', 'https://www.korea.kr/rss/policy.xml');
-      xhr.send();
+      xhr.open('GET', 'https://www.korea.kr/rss/policy.xml'); // 정책브리핑 RSS 주소 요청
+      xhr.send(); // 요청 전송
 
-      xhr.onload = function() {
-        if (this.status == 200) {
-          const doc = this.responseXML;
-          const items = doc.querySelectorAll('item');
+      xhr.onload = function () {
+        if (this.status == 200) { // 응답 상태가 200일 때만 처리
+          const doc = this.responseXML; // 응답 XML 데이터
+          const items = doc.querySelectorAll('item'); // <item> 태그 선택
 
           let listGroup = [];
-          for(let item of items) {
-            let title = item.querySelector('title').childNodes[0].nodeValue;
-            let link = item.querySelector('link').childNodes[0].nodeValue;
+          for (let item of items) {
+            let title = item.querySelector('title').childNodes[0].nodeValue; // 제목 추출
+            let link = item.querySelector('link').childNodes[0].nodeValue; // 링크 추출
 
+            // 리스트 항목을 Bootstrap 스타일로 생성
             listGroup.push(`<a href="${link}" class="list-group-item list-group-item-action" target="_blank">${title}</a>`);
-          }
+          } 
 
-          let newUI = `<div class="list-group">${listGroup.join('')}</div>`;
-          document.querySelector('#pocket').innerHTML = newUI;
+          let newUI = `<div class="list-group">${listGroup.join('')}</div>`; // 리스트 그룹으로 묶기
+          document.querySelector('#pocket').innerHTML = newUI; // 화면에 출력
         }
       };
     }
   </script>
 </body>
+
 </html>

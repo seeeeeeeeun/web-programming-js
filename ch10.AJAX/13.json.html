@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,39 +8,41 @@
   <title>AJAX</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row my-3">
       <div class="col-4">
         <div class="d-grid gap-2">
-          <button class="btn btn-primary" type="button">JSON.parse()</button>
-          <button class="btn btn-success" type="button">JSON.stringfy()</button>
+          <button class="btn btn-primary" type="button">JSON.parse()</button> <!-- 문자열 → 객체 변환 버튼 -->
+          <button class="btn btn-success" type="button">JSON.stringfy()</button> <!-- 객체 → 문자열 변환 버튼 -->
         </div>
       </div>
-      <div class="col-8" id="pocket"></div>
+      <div class="col-8" id="pocket"></div> <!-- 결과 출력 영역 -->
     </div>
   </div>
 
   <script>
-    const book = '{"title":"자바스크립트 입문", "publisher":"생능출판사"}';
-    const obj = {title:'자바스크립트 입문', publisher:'생능출판사'};
+    const book = '{"title":"자바스크립트 입문", "publisher":"생능출판사"}'; // JSON 형식 문자열
+    const obj = { title: '자바스크립트 입문', publisher: '생능출판사' }; // JavaScript 객체
 
-    document.querySelector('.btn-primary').onclick = function() {
-      let json = JSON.parse(book);
-      let txt = `${json.title} (${json.publisher})`;
-      document.querySelector('#pocket').innerHTML = txt;
+    document.querySelector('.btn-primary').onclick = function () {
+      let json = JSON.parse(book); // JSON 문자열 → 객체로 변환
+      let txt = `${json.title} (${json.publisher})`; // 텍스트로 출력 형식 구성
+      document.querySelector('#pocket').innerHTML = txt; // 화면에 출력
 
-      console.log(typeof txt);
+      console.log(typeof txt); // 문자열 타입 출력
     }
 
-    document.querySelector('.btn-success').onclick = function() {
-      console.log(`${obj.title} (${obj.publisher})`);
+    document.querySelector('.btn-success').onclick = function () {
+      console.log(`${obj.title} (${obj.publisher})`); // 객체를 텍스트 형식으로 출력
 
-      let json = JSON.stringify(obj);
-      document.querySelector('#pocket').innerHTML = json;
+      let json = JSON.stringify(obj); // 객체 → JSON 문자열로 변환
+      document.querySelector('#pocket').innerHTML = json; // 문자열 출력
 
-      console.log(typeof json);
+      console.log(typeof json); // 문자열 타입 확인
     }
   </script>
 </body>
+
 </html>
