@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,21 +8,22 @@
   <title>form::validation</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-8 m-3">
-        <form method="get" action="receive.html">
+        <form method="get" action="receive.html"> <!-- GET 방식으로 receive.html에 데이터 전송 -->
           <div class="form-floating mb-3">
-            <input type="text" class="form-control" id="userId" name="userId">
+            <input type="text" class="form-control" id="userId" name="userId"> <!-- 사용자 ID 입력 -->
             <label for="userId">아이디</label>
           </div>
           <div class="form-floating mb-3">
-            <input type="password" class="form-control" id="passwd" name="passwd">
+            <input type="password" class="form-control" id="passwd" name="passwd"> <!-- 비밀번호 입력 -->
             <label for="passwd">비밀번호</label>
           </div>
           <div class="d-grid gap-2 col-6 mx-auto">
-            <button type="submit" class="btn btn-primary">로그인</button>
+            <button type="submit" class="btn btn-primary">로그인</button> <!-- 로그인 버튼 -->
           </div>
         </form>
       </div>
@@ -29,17 +31,18 @@
   </div>
 
   <script>
-    document.forms[0].onsubmit = function (event) {
-      if (this.userId.value.length < 6) {
-        alert('6글자 이상의 ID를 입력하세요');
-        this.userId.focus();
-        event.preventDefault();
-      } else if ((this.passwd.value.length < 4) || isNaN(this.passwd.value)) {
-        alert('4글자 이상의 숫자로된 비밀번호를 입력하세요');
-        this.passwd.focus();
-        event.preventDefault();
+    document.forms[0].onsubmit = function (event) { // 첫 번째 폼의 제출 이벤트 핸들링
+      if (this.userId.value.length < 6) { // ID가 6글자 미만일 경우
+        alert('6글자 이상의 ID를 입력하세요'); // 경고창 표시
+        this.userId.focus(); // ID 입력창에 포커스
+        event.preventDefault(); // 폼 제출 중단
+      } else if ((this.passwd.value.length < 4) || isNaN(this.passwd.value)) { // 비밀번호가 4자리 미만이거나 숫자가 아닐 경우
+        alert('4글자 이상의 숫자로된 비밀번호를 입력하세요'); // 경고창 표시
+        this.passwd.focus(); // 비밀번호 입력창에 포커스
+        event.preventDefault(); // 폼 제출 중단
       }
     }
   </script>
 </body>
+
 </html>

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ko">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,31 +8,33 @@
   <title>form::oninput</title>
   <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
 </head>
+
 <body>
   <div class="container">
     <div class="row my-3">
       <div class="col-7">
-        <input type="range" class="form-range" name="range" min="-180" max="180">
+        <input type="range" class="form-range" name="range" min="-180" max="180"> <!-- 슬라이더 입력: 회전 각도 설정 -->
         <hr>
-        <input type="text" readonly class="form-control-plaintext" name="rangeValue">
+        <input type="text" readonly class="form-control-plaintext" name="rangeValue"> <!-- 슬라이더 값을 출력하는 읽기 전용 텍스트 -->
       </div>
       <div class="col-5">
-        <img src="https://dummyimage.com/400x400/000/fff" class="img-fluid" alt="">
+        <img src="https://dummyimage.com/400x400/000/fff" class="img-fluid" alt=""> <!-- 회전시킬 이미지 -->
       </div>
     </div>
   </div>
 
   <script>
-    var slider = document.querySelector('input[name="range"]');
-    var output = document.querySelector('input[name="rangeValue"]');
-    var img = document.querySelector('img');
+    var slider = document.querySelector('input[name="range"]'); // 슬라이더 요소 선택
+    var output = document.querySelector('input[name="rangeValue"]'); // 출력 텍스트 입력창 선택
+    var img = document.querySelector('img'); // 이미지 요소 선택
 
-    output.value = slider.value;
+    output.value = slider.value; // 초기 슬라이더 값을 출력 필드에 설정
 
-    slider.oninput = function() {
-      output.value = this.value;
-      img.style.transform = `rotate(${this.value}deg)`;
+    slider.oninput = function () { // 슬라이더 값이 변경될 때마다 실행
+      output.value = this.value; // 현재 슬라이더 값을 출력 필드에 반영
+      img.style.transform = `rotate(${this.value}deg)`; // 이미지 회전 적용
     }
   </script>
 </body>
+
 </html>
