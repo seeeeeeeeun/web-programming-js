@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onload</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css">
+</head>
+
+<body>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col">
+        <div class="ratio ratio-21x9">
+          <!-- 첫 번째 유튜브 영상 (일반) -->
+          <iframe src="https://www.youtube.com/embed/UxVykvgm_8U" title="수출강국 대한민국" allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col">
+        <div class="ratio ratio-16x9">
+          <!-- 두 번째 유튜브 영상 (자동재생, 음소거) -->
+          <iframe src="https://www.youtube.com/embed/V46M1IqMF1M?autoplay=1&mute=1" title="디지털 뉴딜로 통하는 새로운 세상"
+            allowfullscreen></iframe>
+        </div>
+      </div>
+      <div class="col">
+        <div class="ratio ratio-4x3">
+          <!-- 세 번째 유튜브 영상 (JS 제어용) -->
+          <iframe id="player" src="https://www.youtube.com/embed/yNQOgzZ1Sw0?enablejsapi=1" title="탄소중립"></iframe>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap 비율 문서 참고 -->
+  <!-- 대한민국 정부 유튜브 채널 출처 -->
+
+  <script src="https://www.youtube.com/iframe_api"></script> <!-- 유튜브 JS API 불러오기 -->
+  <script>
+    const videos = document.querySelectorAll('iframe'); // 모든 iframe 요소 가져오기
+
+    videos[0].onload = function () {
+      console.log(1); // 첫 번째 iframe 로드 시 출력
+    }
+
+    videos[1].onload = function () {
+      console.log(2); // 두 번째 iframe 로드 시 출력
+    }
+
+    videos[2].addEventListener('load', function () {
+      console.log(3); // 세 번째 iframe 로드 시 출력 (addEventListener 사용)
+    });
+
+    // 유튜브 JS API가 준비되면 자동으로 실행되는 콜백 함수
+    function onYouTubeIframeAPIReady() {
+      let player = new YT.Player('player', { // id="player"인 iframe을 YT.Player로 초기화
+        events: {
+          'onReady': onPlayerReady // 플레이어 준비 완료 시 실행할 함수 등록
+        }
+      });
+    }
+
+    // 플레이어 준비 완료 시 자동 실행되는 함수
+    function onPlayerReady(event) {
+      event.target.setVolume(0); // 볼륨 0 (음소거)
+      event.target.playVideo(); // 영상 자동 재생
+    }
+  </script>
+</body>
+
+</html>

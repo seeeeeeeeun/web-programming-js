@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onload</title>
+  <link rel="stylesheet" href="/bootstrap-5.3.2-dist/css/bootstrap.min.css"> <!-- Bootstrap 스타일 적용 -->
+</head>
+
+<body>
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-6">
+        <!-- 유튜브 플레이어가 삽입될 div (JS에서 iframe 생성) -->
+        <div id="player" class="ratio ratio-16x9"></div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://www.youtube.com/iframe_api"></script> <!-- YouTube iframe API 로드 -->
+  <script>
+    // YouTube API 로드 완료 시 자동 호출되는 함수
+    function onYouTubeIframeAPIReady() {
+      let player = new YT.Player('player', { // id="player"인 div에 iframe 생성
+        videoId: 'yNQOgzZ1Sw0', // 재생할 유튜브 영상 ID
+        events: {
+          'onReady': onPlayerReady // 플레이어 준비 완료 시 호출될 콜백 함수 등록
+        }
+      });
+    }
+
+    // 플레이어가 준비되었을 때 실행되는 함수
+    function onPlayerReady(event) {
+      event.target.setVolume(0);    // 볼륨 0으로 설정 (음소거)
+      event.target.playVideo();     // 영상 자동 재생
+    }
+  </script>
+</body>
+
+</html>

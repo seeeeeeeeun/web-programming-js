@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>이벤트::onload</title>
+</head>
+
+<body onload="myFunction()"> <!--인라인-->
+  <script>
+    console.log(1);
+
+    function myFunction() { //함수 정의
+      console.log(2);
+    }
+
+    window.onload = function () { //js에서 직접
+      console.log(3);
+    }
+
+    window.addEventListener('load', function () { //load 이벤트 등록
+      console.log(4);
+    });
+
+    console.log(5);
+  </script>
+</body>
+</html>

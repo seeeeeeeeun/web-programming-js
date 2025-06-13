@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE 호환 모드 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+  <title>타이밍 이벤트::setInterval()</title> <!-- 문서 제목 -->
+  <style>
+    #circle {
+      width: 100px;
+      /* 원의 너비 */
+      height: 100px;
+      /* 원의 높이 */
+      background-color: lightcoral;
+      /* 배경색 설정 */
+      border-radius: 50%;
+      /* 원형으로 만들기 */
+      cursor: pointer;
+      /* 마우스 커서를 손모양으로 변경 */
+      position: absolute;
+      /* 위치를 절대값으로 지정 */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="circle"></div> <!-- 클릭 이벤트 대상인 원 -->
+
+  <script>
+    let interval; // setInterval ID를 저장할 변수
+    let flag = false; // 애니메이션 실행 여부를 판단하는 변수
+    let move = 0; // 원의 이동 거리 초기값
+
+    document.querySelector('#circle').onclick = function () {
+      if (flag = !flag) {  // ex) false → true → 실행 / true → false → 중지
+        interval = setInterval(() => {
+          move += 20; // 20px씩 이동
+          this.style.left = move + 'px'; // 원을 오른쪽으로 이동
+        }, 250); // 250ms 간격으로 실행
+      } else {
+        clearInterval(interval); // 인터벌 중지 (움직임 멈춤)
+      }
+    }
+  </script>
+</body>
+
+</html>

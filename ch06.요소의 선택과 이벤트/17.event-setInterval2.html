@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE 호환성 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+  <title>타이밍 이벤트::setInterval()</title> <!-- 문서 제목 -->
+  <style>
+    #circle {
+      width: 100px;
+      /* 너비 100px */
+      height: 100px;
+      /* 높이 100px */
+      background-color: lightcoral;
+      /* 배경색 */
+      border-radius: 50%;
+      /* 원형 만들기 */
+      cursor: pointer;
+      /* 마우스 커서 손모양 */
+      position: absolute;
+      /* 위치 절대 지정 */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="circle"></div> <!-- 클릭 대상 원 요소 -->
+
+  <script>
+    let move = 0; // 원의 이동 거리 저장 변수
+    document.querySelector('#circle').onclick = function () {
+      console.log(this); // 클릭된 요소 로그 출력 (circle 요소)
+      setInterval(function () {
+        console.log(this); // 일반 함수에서의 this는 window 객체
+        move += 20; // 이동거리 20px 증가
+        this.style.left = move + 'px'; // 문제: this가 window라 오류 발생 !!!!!!!!!!!!!
+      }, 250);
+    }
+  </script>
+</body>
+
+</html>

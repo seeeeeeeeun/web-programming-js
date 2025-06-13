@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8"> <!-- 문자 인코딩 설정 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- IE 호환 모드 설정 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- 반응형 설정 -->
+  <title>타이밍 이벤트::setInterval()</title> <!-- 페이지 제목 -->
+  <style>
+    #circle {
+      width: 100px;
+      /* 너비 설정 */
+      height: 100px;
+      /* 높이 설정 */
+      background-color: lightcoral;
+      /* 배경색 설정 */
+      border-radius: 50%;
+      /* 원형 모양 */
+      cursor: pointer;
+      /* 마우스 커서 변경 */
+      position: absolute;
+      /* 절대 위치 지정 */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="circle"></div> <!-- 원 요소 -->
+
+  <script>
+    let move = 0; // 원의 이동 거리 초기값
+    document.querySelector('#circle').onclick = function () {
+      console.log(1, this); // 클릭된 요소(this) 콘솔 출력
+      setInterval(() => {
+        console.log(2, this); // 화살표 함수 사용으로 this는 상위 스코프(클릭된 요소)를 유지
+        move += 20; // 20px씩 이동
+        this.style.left = move + 'px'; // 원의 왼쪽 위치를 이동 거리만큼 설정
+      }, 250); // 250ms 간격으로 실행
+    }
+  </script>
+</body>
+
+</html>

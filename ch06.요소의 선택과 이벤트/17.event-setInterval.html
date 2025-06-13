@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>타이밍 이벤트::setInterval()</title>
+  <style>
+    /* 원(circle) 스타일 설정 */
+    #circle {
+      width: 100px;
+      height: 100px;
+      background-color: lightcoral;
+      /* 빨간 원 */
+      border-radius: 50%;
+      /* 동그랗게 만들기 */
+      cursor: pointer;
+      /* 마우스 올리면 손모양 */
+      position: absolute;
+      /* 위치 이동 가능하게 설정 */
+    }
+  </style>
+</head>
+
+<body>
+  <div id="circle"></div> <!-- 클릭 가능한 원 요소 -->
+
+  <script>
+    let move = 0; // 이동 거리 초기값
+
+    // 원을 클릭했을 때 실행
+    document.querySelector('#circle').onclick = function () {
+      // 250ms마다 왼쪽으로 20px씩 이동
+      setInterval(function () {
+        move += 20;
+        document.querySelector('#circle').style.left = move + 'px'; // 위치 갱신
+      }, 250);
+    }
+  </script>
+</body>
+
+</html>
